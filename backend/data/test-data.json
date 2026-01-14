@@ -1,0 +1,9 @@
+{
+  "title": "Test Data",
+  "description": "This file verifies frontend-backend communication",
+  "items": [
+    { "id": 1, "name": "Bulbasaur" },
+    { "id": 4, "name": "Charmander" },
+    { "id": 7, "name": "Squirtle" }
+  ]
+}

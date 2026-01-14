@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -44,6 +46,19 @@ app.get('/api', (req, res) => {
       '/api/health'
     ]
   });
+});
+
+// Serve test JSON file to verify frontend-backend communication
+app.get('/api/data', (req, res) => {
+  const dataPath = path.join(__dirname, 'data', 'test-data.json');
+  try {
+    const raw = fs.readFileSync(dataPath, 'utf8');
+    const json = JSON.parse(raw);
+    res.json(json);
+  } catch (err) {
+    console.error('Error reading test data:', err);
+    res.status(500).json({ error: 'Failed to load test data' });
+  }
 });
 
 // Start server
