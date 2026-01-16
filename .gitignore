@@ -7,3 +7,9 @@ node_modules
 .env.test.local
 .env.production.local
 
+# Virtual environment
+.venv
+
+# Data ingestion
+data-ingestion/bmo_card_text
+
